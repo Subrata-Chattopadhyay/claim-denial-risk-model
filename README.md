@@ -74,6 +74,34 @@ python -m src.explain --predictions outputs/predictions_current_claims.csv \
 
 Everything is reproducible with `--seed 42`.
 
+## Testing / verifying the code
+
+An automated `pytest` suite verifies the pipeline's key invariants:
+
+```bash
+pip install -r requirements.txt   # includes pytest
+python -m pytest                  # runs tests/ (config in pytest.ini)
+```
+
+Expected: **24 passing tests in a few seconds.** What they check:
+
+| Area | What is verified | File |
+|---|---|---|
+| Feature engineering | `auth_gap` / `referral_gap` logic, zero-billed safe `payment_ratio`, `late_submission`, `readiness_deficits`, no NaNs | `tests/test_data.py` |
+| No data leakage | `is_denied`, `denial_reason`, `split`, `claim_id` never enter model inputs; split used as-is | `tests/test_data.py` |
+| Metric correctness | capture @ top-25% on synthetic perfect/worst/partial rankings; `k = ceil(fraction·n)` | `tests/test_evaluate.py` |
+| Model & scoring | probabilities in [0,1]; prediction schema, sort order, valid tiers; `predicted_denial` matches the operating threshold | `tests/test_model_predict.py` |
+| Risk drivers | learned lift > 1 for known drivers; per-claim factors grounded in the row | `tests/test_model_predict.py` |
+| Reproducibility | training twice with `--seed 42` yields identical test metrics | `tests/test_model_predict.py` |
+| GenAI grounding | prompt uses only given fields; explanation cites the claim, names the driver, gives an action, hedges as a risk estimate, invents no dollar amounts; low-risk claim behaves sensibly | `tests/test_llm.py` |
+
+Beyond the unit tests, you can **verify the end-to-end results manually**:
+
+* `outputs/metrics.json` — test-set ROC-AUC / PR-AUC and denial capture @ top 25%.
+* `outputs/predictions_current_claims.csv` — 500 rows, sorted by `denial_probability`, tiers, drivers, top-10 explanations.
+* `outputs/top10_explanations.json` — the exact prompt + output per claim, plus the low-risk sanity check.
+* `writeup/writeup.pdf` — the 2–3 page write-up.
+
 ## Predictions output
 
 `outputs/predictions_current_claims.csv`, sorted highest→lowest denial
