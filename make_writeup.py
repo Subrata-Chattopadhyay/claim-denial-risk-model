@@ -34,6 +34,12 @@ WRITEUP.mkdir(exist_ok=True)
 metrics = json.loads((OUT / "metrics.json").read_text())
 expl = json.loads((OUT / "top10_explanations.json").read_text())
 
+# Ensure the EDA plots exist (write-up depends on them); regenerate if missing.
+if not (PLOTS / "eda_risk_flags.png").exists() or not (PLOTS / "eda_payer_visit.png").exists():
+    from src.eda import run as _eda_run
+
+    _eda_run()
+
 styles = getSampleStyleSheet()
 styles.add(ParagraphStyle("H1b", parent=styles["Heading1"], fontSize=15, spaceAfter=6, textColor=colors.HexColor("#1F3B6E")))
 styles.add(ParagraphStyle("H2b", parent=styles["Heading2"], fontSize=11.5, spaceBefore=8, spaceAfter=3, textColor=colors.HexColor("#2A4C86")))
