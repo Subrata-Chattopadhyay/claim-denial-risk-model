@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp write-up renders
+writeup/_page*.png
+
+# Note: outputs/ (model, metrics, predictions, plots) are intentionally
+# committed so reviewers can see results without re-running the pipeline.

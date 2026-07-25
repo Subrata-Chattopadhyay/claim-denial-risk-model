@@ -1,0 +1,66 @@
+{
+  "selected_model": "logreg",
+  "leaderboard": [
+    {
+      "model": "logreg",
+      "val_denial_capture_top25": 0.47572815533980584,
+      "val_precision_top25": 0.362962962962963,
+      "val_pr_auc": 0.4486905291431747,
+      "val_roc_auc": 0.7086487930880911
+    },
+    {
+      "model": "rf",
+      "val_denial_capture_top25": 0.47572815533980584,
+      "val_precision_top25": 0.362962962962963,
+      "val_pr_auc": 0.3982168230205716,
+      "val_roc_auc": 0.6743787298476887
+    },
+    {
+      "model": "gbm",
+      "val_denial_capture_top25": 0.4563106796116505,
+      "val_precision_top25": 0.34814814814814815,
+      "val_pr_auc": 0.39064020677142,
+      "val_roc_auc": 0.6788768148214126
+    }
+  ],
+  "rule_baseline": {
+    "val_denial_capture_top25": 0.39805825242718446,
+    "val_precision_top25": 0.3037037037037037
+  },
+  "tier_thresholds": {
+    "high": 0.73557958944566,
+    "medium": 0.5911482903536842
+  },
+  "operating_threshold": 0.5929026585450402,
+  "test": {
+    "n": 539,
+    "positives": 140,
+    "base_rate": 0.2597402597402597,
+    "roc_auc": 0.6960615825277481,
+    "pr_auc": 0.5103426499724409,
+    "threshold": 0.5929026585450402,
+    "precision": 0.475177304964539,
+    "recall": 0.4785714285714286,
+    "f1": 0.47686832740213525,
+    "confusion_matrix": {
+      "tn": 325,
+      "fp": 74,
+      "fn": 73,
+      "tp": 67
+    },
+    "capture_at_top25": {
+      "fraction": 0.25,
+      "k": 135,
+      "threshold": 0.6029438217427169,
+      "precision": 0.4888888888888889,
+      "recall": 0.4714285714285714,
+      "denials_caught": 66,
+      "total_denials": 140,
+      "denial_capture": 0.4714285714285714
+    }
+  },
+  "plots": [
+    "C:\\Users\\subratac\\Downloads\\Hiring Assessment - AI Team - Classical ML + Gen AI problem (1)\\denial-risk-model\\outputs\\plots\\test_roc_pr.png",
+    "C:\\Users\\subratac\\Downloads\\Hiring Assessment - AI Team - Classical ML + Gen AI problem (1)\\denial-risk-model\\outputs\\plots\\test_capture_curve.png"
+  ]
+}

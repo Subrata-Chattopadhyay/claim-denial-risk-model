@@ -1,0 +1,9 @@
+driver,label,denial_rate,lift_vs_base
+auth_gap,Prior authorization required but not on file,0.449,2.13
+missing_documentation,Required supporting documentation appears to be missing,0.4,1.89
+eligibility_unverified,Patient eligibility was not verified before the visit,0.353,1.67
+referral_gap,Referral required but not present,0.328,1.55
+inpatient_visit,Inpatient visit (historically higher denial rate),0.305,1.45
+late_submission,Claim is being submitted late (timely-filing risk),0.274,1.3
+high_denial_payer_type,Payer type with an above-average denial rate,0.274,1.3
+out_of_network,Provider is out of network for this payer,0.257,1.22

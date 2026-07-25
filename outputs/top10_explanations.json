@@ -1,0 +1,144 @@
+{
+  "generator": "offline_template",
+  "system_prompt": "You are a claims-denial risk assistant for a hospital's front-end review team. You help analysts quickly triage claims before submission. You must ground every statement strictly in the structured claim facts you are given. Never invent clinical details, dollar amounts, or reasons that are not in the facts. Always describe the score as a risk estimate, not a certainty.",
+  "prompt_template": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: {claim_id}\n- Payer: {payer_id} ({payer_type})\n- Visit type: {visit_type}\n- Total billed: ${total_billed:,.0f}; expected payment: ${expected_payment:,.0f}\n- Days from care to submission: {days_to_submit}\n- Model denial probability: {denial_probability:.0%}  (risk tier: {risk_tier})\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n{driver_bullets}\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+  "top_explanations": [
+    {
+      "claim_id": "CCLM-00082",
+      "denial_probability": 0.9406,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Required supporting documentation appears to be missing",
+        "Patient eligibility was not verified before the visit",
+        "Referral required but not present"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00082\n- Payer: P009 (BCBS)\n- Visit type: Inpatient\n- Total billed: $87,590; expected payment: $52,700\n- Days from care to submission: 27\n- Model denial probability: 94%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Required supporting documentation appears to be missing\n    - Patient eligibility was not verified before the visit\n    - Referral required but not present\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00082, payer P009) shows a high risk of denial at about 94%. The main concern is that required supporting documentation appears to be missing, and also patient eligibility was not verified before the visit and referral required but not present. Recommended action: gather the missing supporting documents and attach them before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00087",
+      "denial_probability": 0.9356,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Required supporting documentation appears to be missing",
+        "Patient eligibility was not verified before the visit",
+        "Inpatient visit (historically higher denial rate)"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00087\n- Payer: P010 (BCBS)\n- Visit type: Inpatient\n- Total billed: $30,741; expected payment: $17,759\n- Days from care to submission: 40\n- Model denial probability: 94%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Required supporting documentation appears to be missing\n    - Patient eligibility was not verified before the visit\n    - Inpatient visit (historically higher denial rate)\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00087, payer P010) shows a high risk of denial at about 94%. The main concern is that required supporting documentation appears to be missing, and also patient eligibility was not verified before the visit and inpatient visit (historically higher denial rate). Recommended action: gather the missing supporting documents and attach them before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00372",
+      "denial_probability": 0.9079,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Required supporting documentation appears to be missing",
+        "Payer type with an above-average denial rate"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00372\n- Payer: P008 (Medicaid MCO)\n- Visit type: Outpatient\n- Total billed: $3,453; expected payment: $1,105\n- Days from care to submission: 20\n- Model denial probability: 91%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Required supporting documentation appears to be missing\n    - Payer type with an above-average denial rate\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00372, payer P008) shows a high risk of denial at about 91%. The main concern is that prior authorization required but not on file, and also required supporting documentation appears to be missing and payer type with an above-average denial rate. Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00049",
+      "denial_probability": 0.9068,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Required supporting documentation appears to be missing",
+        "Referral required but not present"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00049\n- Payer: P012 (Medicaid MCO)\n- Visit type: Outpatient\n- Total billed: $5,581; expected payment: $2,100\n- Days from care to submission: 15\n- Model denial probability: 91%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Required supporting documentation appears to be missing\n    - Referral required but not present\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00049, payer P012) shows a high risk of denial at about 91%. The main concern is that prior authorization required but not on file, and also required supporting documentation appears to be missing and referral required but not present. Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00446",
+      "denial_probability": 0.8938,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Required supporting documentation appears to be missing",
+        "Patient eligibility was not verified before the visit",
+        "Inpatient visit (historically higher denial rate)"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00446\n- Payer: P012 (Medicaid MCO)\n- Visit type: Inpatient\n- Total billed: $25,544; expected payment: $9,633\n- Days from care to submission: 23\n- Model denial probability: 89%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Required supporting documentation appears to be missing\n    - Patient eligibility was not verified before the visit\n    - Inpatient visit (historically higher denial rate)\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00446, payer P012) shows a high risk of denial at about 89%. The main concern is that required supporting documentation appears to be missing, and also patient eligibility was not verified before the visit and inpatient visit (historically higher denial rate). Recommended action: gather the missing supporting documents and attach them before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00344",
+      "denial_probability": 0.8921,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Required supporting documentation appears to be missing"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00344\n- Payer: P010 (BCBS)\n- Visit type: Emergency\n- Total billed: $5,743; expected payment: $2,414\n- Days from care to submission: 16\n- Model denial probability: 89%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Required supporting documentation appears to be missing\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00344, payer P010) shows a high risk of denial at about 89%. The main concern is that prior authorization required but not on file, and also required supporting documentation appears to be missing. Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00028",
+      "denial_probability": 0.8842,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Required supporting documentation appears to be missing",
+        "Patient eligibility was not verified before the visit",
+        "Inpatient visit (historically higher denial rate)"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00028\n- Payer: P012 (Medicaid MCO)\n- Visit type: Inpatient\n- Total billed: $9,343; expected payment: $4,083\n- Days from care to submission: 28\n- Model denial probability: 88%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Required supporting documentation appears to be missing\n    - Patient eligibility was not verified before the visit\n    - Inpatient visit (historically higher denial rate)\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00028, payer P012) shows a high risk of denial at about 88%. The main concern is that required supporting documentation appears to be missing, and also patient eligibility was not verified before the visit and inpatient visit (historically higher denial rate). Recommended action: gather the missing supporting documents and attach them before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00259",
+      "denial_probability": 0.8748,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Referral required but not present",
+        "Inpatient visit (historically higher denial rate)"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00259\n- Payer: P008 (Medicaid MCO)\n- Visit type: Inpatient\n- Total billed: $11,715; expected payment: $4,143\n- Days from care to submission: 17\n- Model denial probability: 87%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Referral required but not present\n    - Inpatient visit (historically higher denial rate)\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00259, payer P008) shows a high risk of denial at about 87%. The main concern is that prior authorization required but not on file, and also referral required but not present and inpatient visit (historically higher denial rate). Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00352",
+      "denial_probability": 0.8713,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Required supporting documentation appears to be missing",
+        "Payer type with an above-average denial rate"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00352\n- Payer: P005 (Medicare Advantage)\n- Visit type: Outpatient\n- Total billed: $16,882; expected payment: $5,223\n- Days from care to submission: 10\n- Model denial probability: 87%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Required supporting documentation appears to be missing\n    - Payer type with an above-average denial rate\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00352, payer P005) shows a high risk of denial at about 87%. The main concern is that prior authorization required but not on file, and also required supporting documentation appears to be missing and payer type with an above-average denial rate. Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    },
+    {
+      "claim_id": "CCLM-00177",
+      "denial_probability": 0.8697,
+      "risk_tier": "High",
+      "top_risk_factors": [
+        "Prior authorization required but not on file",
+        "Required supporting documentation appears to be missing",
+        "Claim is being submitted late (timely-filing risk)"
+      ],
+      "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00177\n- Payer: P003 (Commercial)\n- Visit type: Outpatient\n- Total billed: $8,737; expected payment: $6,028\n- Days from care to submission: 34\n- Model denial probability: 87%  (risk tier: High)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - Prior authorization required but not on file\n    - Required supporting documentation appears to be missing\n    - Claim is being submitted late (timely-filing risk)\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+      "explanation": "This claim (CCLM-00177, payer P003) shows a high risk of denial at about 87%. The main concern is that prior authorization required but not on file, and also required supporting documentation appears to be missing and claim is being submitted late (timely-filing risk). Recommended action: obtain and attach the prior authorization before submitting. This is a model risk estimate, not a guaranteed denial.",
+      "source": "offline_template"
+    }
+  ],
+  "low_risk_sanity_check": {
+    "claim_id": "CCLM-00442",
+    "denial_probability": 0.0891,
+    "risk_tier": "Low",
+    "top_risk_factors": [],
+    "prompt": "A machine-learning model scored the following claim for denial risk.\nUse ONLY the facts below. Do not add any information that is not present.\n\nCLAIM FACTS\n- Claim ID: CCLM-00442\n- Payer: P001 (Commercial)\n- Visit type: Observation\n- Total billed: $1,843; expected payment: $1,016\n- Days from care to submission: 2\n- Model denial probability: 9%  (risk tier: Low)\n\nTOP RISK DRIVERS FOR THIS CLAIM (already validated against the data)\n    - No major front-end risk flags; score is driven by softer signals.\n\nTASK\nWrite a 2-3 sentence explanation for a busy analyst that:\n  1. States the risk level in plain language.\n  2. Names the main driver(s) above, using no jargon.\n  3. Gives ONE specific, concrete recommended action tied to the top driver.\n  4. Makes clear this is a risk estimate, not a guaranteed denial.\nDo not use bullet points. Return only the explanation text.\n",
+    "explanation": "This claim (CCLM-00442, payer P001) shows a low risk of denial at about 9%. No single front-end problem stands out; the score reflects a combination of softer payer and visit signals. Recommended action: Do a quick completeness check on authorization, documentation, and eligibility before submitting. This is a model risk estimate, not a guaranteed denial."
+  }
+}
