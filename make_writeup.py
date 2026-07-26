@@ -59,8 +59,11 @@ _pos = t["positives"]
 _k = cap["k"]
 oracle_capture = min(_k, _pos) / _pos            # perfect ranker, capped by review budget
 random_capture = cap["fraction"]                 # ~0.25
-_val_caps = [lb[m]["val_denial_capture_top25"] for m in ("logreg", "rf", "gbm")]
-model_lo, model_hi = min(_val_caps), max(_val_caps)
+_val_caps = [lb[m]["val_denial_capture_top25"] for m in ("logreg", "rf", "gbm") if m in lb]
+if _val_caps:
+    model_lo, model_hi = min(_val_caps), max(_val_caps)
+else:
+    model_lo = model_hi = cap["denial_capture"]
 ci_lo = ci_hi = None
 try:
     from src.config import DATA_DIR
