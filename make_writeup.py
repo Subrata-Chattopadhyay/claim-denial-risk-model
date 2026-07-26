@@ -151,6 +151,9 @@ story.append(P("5. GenAI explanations — prompt, example, sanity check", "H2b")
 story.append(P(
     "For the top-10 riskiest current claims, the model's grounded risk drivers feed an LLM prompt "
     "(provider-agnostic; runs on OpenAI/Anthropic when a key is set, else a grounded offline template). "
+    "No live API key was available for this submission, so — per the assignment's no-API fallback — the graded "
+    "artifacts are the prompt design and the example outputs below, produced by a deterministic offline generator "
+    "that fills the identical prompt template (the code calls a real provider automatically once a key is set). "
     "The prompt forces the model to use only the claim's real fields, add one concrete action, and hedge as a "
     "risk estimate. Prompt template (abridged):", "Body2"))
 story.append(P(

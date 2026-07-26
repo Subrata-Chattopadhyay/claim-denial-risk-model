@@ -127,6 +127,17 @@ probability, with:
 
 ## GenAI / LLM notes
 
+> **No live LLM API was used for this submission** (no API key was available in
+> the environment). Per the assignment's stated fallback — *"If you do not have
+> API access, write the prompts and include two or three manually drafted example
+> outputs; we are evaluating your prompt design"* — the graded artifacts here are
+> the **prompt design** (`src/llm.py`) and the **example outputs** produced by a
+> deterministic, fully-grounded offline generator that fills the exact same prompt
+> template. The code path calls a real provider automatically the moment a key is
+> present (see below). Example outputs to review: `outputs/top10_explanations.json`
+> (prompt + output per claim, plus the low-risk sanity check) and the `explanation`
+> column of `outputs/predictions_current_claims.csv`.
+
 * The prompt template and system prompt live in `src/llm.py`; the exact prompt
   used for each claim is saved to `outputs/top10_explanations.json`.
 * If `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY`) is set, that provider is called;
